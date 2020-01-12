@@ -29,17 +29,14 @@ function createGrid(gridNmbr) {
                 switch (colorChoice) {
                     case "black":
                         color = "black";
-                        console.log(color);
                         break;
                     case "rnd":
                         color = getRndColor();
-                        console.log(color);
                         break;
                     case "shaded":
-                        color = shadedColor();
-                        console.log(color);
+                        color = shadedColor(cell);
                         break;
-                    
+
                 }
                 cellColor(cell, color);
             });
@@ -52,8 +49,18 @@ function getRndColor() {
     return "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
 }
 
-function shadedColor() {
-    return "blue";
+function shadedColor(cell) {
+    if (!cell.style.background.includes("rgba")) {
+        console.log("doesnt include");
+        return "rgba(0,0,0,0.1)";
+    }
+    let alpha = cell.style.background.split(',')[3];
+    alpha = alpha.substr(0, alpha.length - 1);
+    alpha = +alpha;
+    alpha += 0.1;
+    if (alpha >= 1) alpha = 0.99; // -> so ugly (for some reason setting rgba to alpha 1 it gets set to rgb without alpha)
+    console.log(alpha);
+    return "rgba(0,0,0," + alpha + ")";
 }
 
 function cellColor(cell, color) {
