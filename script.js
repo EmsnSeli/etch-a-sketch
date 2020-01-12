@@ -25,11 +25,43 @@ function createGrid(gridNmbr) {
             let cell = document.createElement("div");
             cell.className = "gridcell";
             row.appendChild(cell);
-            cell.addEventListener("mouseover", () => cell.style.background = color);
+            cell.addEventListener("mouseover", function () {
+                switch (colorChoice) {
+                    case "black":
+                        color = "black";
+                        console.log(color);
+                        break;
+                    case "rnd":
+                        color = getRndColor();
+                        console.log(color);
+                        break;
+                    case "shaded":
+                        color = shadedColor();
+                        console.log(color);
+                        break;
+                    
+                }
+                cellColor(cell, color);
+            });
         }
         gridContainer.appendChild(row);
     }
 }
+
+function getRndColor() {
+    return "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+}
+
+function shadedColor() {
+    return "blue";
+}
+
+function cellColor(cell, color) {
+    cell.style.background = color;
+}
+
+///
+//get button for clearing grid
 const clearButton = document.querySelector(".clearButton");
 clearButton.addEventListener("click", clearGrid);
 
@@ -40,8 +72,22 @@ function clearGrid() {
     });
     createGrid(prompt("What size you want your grid?"));
 }
+///
+
 
 function isInputCorrect(gridNmbr) {
     if (isNaN(gridNmbr) || gridNmbr < 1 || gridNmbr > 100) return false;
     return true;
+}
+
+var rad = document.getElementsByName("colorchoice");
+var colorChoice = null;
+for (var i = 0; i < rad.length; i++) {
+    rad[i].onclick = function () {
+        (colorChoice) ? console.log(""): null;
+        if (this !== colorChoice) {
+            colorChoice = this;
+        }
+        colorChoice = this.value;
+    };
 }

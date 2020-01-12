@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="container">
-            
+
             <div class="gametitle">
                 <h1>Etch A Sketch!</h1>
             </div>
@@ -27,16 +27,33 @@
             </div>
         </div>
     </header>
-    
+
     <section class="theGame">
         <div class="container">
-            <button class="clearButton">Clear Grid</button>
-            <div class="gameContainer">
-                
+            <div class="center">
+                <button class="clearButton">Clear Grid</button>
+                <div class="gameContainer">
+                </div>
+            </div>
+            <div class="colorSelection">
+                <form>
+                    <p>Selct your Color:</p>
+                    <div class="radios">
+                        <input type="radio" id="blackColorchoice" name="colorchoice" value="black">
+                        <label for="blackColorchoice">Black</label>
+
+                        <input type="radio" id="rndColorchoice" name="colorchoice" value="rnd">
+                        <label for="rndColorchoice">Random Color</label>
+
+                        <input type="radio" id="shadeColorchoice" name="colorchoice" value="shaded">
+                        <label for="fadeColorchoice">Shaded Color</label>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 </body>
 
 <script src="script.js"></script>
+
 </html>
