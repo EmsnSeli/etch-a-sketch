@@ -10,8 +10,12 @@ body {
     line-height: 1.5;
     padding: 0;
     margin: 0;
-    background-color: #47585e;
+    background-color: #769dab;
     color: white;
+}
+
+h1, h3 {
+    font-family: 'Press Start 2P', cursive;
 }
 
 .container {
@@ -29,6 +33,27 @@ body {
     float: left;
 }
 
+.theGame .container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.clearButton {
+    margin-bottom: 50px;
+    padding:0.5em 1.5em;
+    border-radius: 2em;
+    font-size: 1.2em;
+    text-decoration:none;
+    color: white;
+    background-color: #4e9af1;
+    border:0.16em solid rgba(255,255,255,0);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.clearButton:hover{
+    border:0.16em solid rgba(255,255,255,1);
+
+}
+
 .container .gameContainer {
     width: 500px;
     margin: auto;
@@ -36,6 +61,7 @@ body {
     background-color: antiquewhite;
     border: 2px solid rgb(96, 218, 235);
     border-radius: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .row {
